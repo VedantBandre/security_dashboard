@@ -1,0 +1,72 @@
+# =========================
+# General
+# =========================
+.DS_Store
+Thumbs.db
+*.log
+*.sqlite3
+*.swp
+*.swo
+.env
+.env.*
+*.env
+
+# =========================
+# Node / React (frontend)
+# =========================
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.next/
+frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/.env
+
+# =========================
+# Python / Django (backend)
+# =========================
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+
+# Virtual environments
+backend/venv/
+backend/.venv/
+backend/env/
+backend/.env/
+
+# Django stuff
+backend/db.sqlite3
+backend/db.sqlite3-journal
+backend/media/
+backend/staticfiles/
+backend/static/
+
+# Migrations (optional: keep if you want them tracked)
+# backend/**/migrations/*.py
+# backend/**/migrations/*.pyc
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.iml
+
+# =========================
+# Testing / Coverage
+# =========================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# =========================
+# OS / Misc
+# =========================
+*.bak
+*.tmp
