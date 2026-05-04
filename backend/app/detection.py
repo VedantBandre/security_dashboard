@@ -1,9 +1,9 @@
 from datetime import timedelta
 from django.utils import timezone
 
-BRUTE_FORCE_ATTEMPTS = 5
+BRUTE_FORCE_THRESHOLD = 5
 BRUTE_FORCE_WINDOW_MINUTES = 5
-
+ 
 RATE_THRESHOLD = 10
 RATE_WINDOW_SECONDS = 60
 
@@ -22,20 +22,20 @@ def is_suspicious(ip_address: str) -> bool:
     failed_count = LoginEvent.objects.filter(
         ip_address=ip_address,
         success=False,
-        timestamp__gte=brute_window
+        timestamp__gte=brute_window,
     ).count()
     
-    if failed_count >= BRUTE_FORCE_ATTEMPTS:
+    if failed_count > BRUTE_FORCE_THRESHOLD:
         return True
 
     # RULE 2: Rate-abuse detection
     rate_window = now - timedelta(seconds=RATE_WINDOW_SECONDS)
-    total_count = LoginEvent.objects.filter(
+    rate_count = LoginEvent.objects.filter(
         ip_address=ip_address,
         timestamp__gte=rate_window
     ).count()
     
-    if total_count >= RATE_THRESHOLD:
+    if rate_count > RATE_THRESHOLD:
         return True
 
     return False
