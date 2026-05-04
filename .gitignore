@@ -30,22 +30,24 @@ frontend/.env
 # =========================
 # Python / Django (backend)
 # =========================
-backend/__pycache__/
-backend/*.py[cod]
-backend/*$py.class
+
+# Bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
 
 # Virtual environments
-backend/venv/
-backend/.venv/
-backend/env/
-backend/.env/
+venv/
+.venv/
+env/
+.env/
 
-# Django stuff
-backend/db.sqlite3
-backend/db.sqlite3-journal
-backend/media/
-backend/staticfiles/
-backend/static/
+# Django
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
 
 # Migrations (optional: keep if you want them tracked)
 # backend/**/migrations/*.py
